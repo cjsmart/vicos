@@ -67,7 +67,7 @@ int main(int argc, char** argv)
 	{
          yi= rk.CalculateStep(x, yi, dx, &prob);
 		 
-		 std::cout << yi << std::endl;
+	 std::cout << yi << std::endl;
 		 
          x+=dx;
     }
