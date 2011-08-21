@@ -1,6 +1,6 @@
 /* 
  * File:   RKMethod.h
- * Author: pozin
+ * Author: cjsmart <alexey.pozin@gmail.com>
  *
  * Created on 15 Август 2011 г., 15:18
  */
@@ -18,7 +18,7 @@ class CRungeKutta4Method : public CIVPMethod
 {
 public:
 	// вычисляет один шаг численного метода решения задачи Коши
-	virtual timepoint CalculateStep(time t, const timepoint& x, 
+	virtual timepoint CalculateStep(time t, const timepoint& x,
 		time h, CProblem* pProblem);
 };
 

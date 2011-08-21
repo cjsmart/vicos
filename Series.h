@@ -1,6 +1,6 @@
 /* 
  * File:   Series.h
- * Author: pozin
+ * Author: cjsmart <alexey.pozin@gmail.com>
  *
  * Created on 15 Август 2011 г., 15:12
  */
