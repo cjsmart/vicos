@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=iode
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/iode
+CND_ARTIFACT_NAME_Debug=vicos
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/vicos
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=iode.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/iode.tar
+CND_PACKAGE_NAME_Debug=vicos.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/vicos.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=iode
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/iode
+CND_ARTIFACT_NAME_Release=vicos
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/vicos
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=iode.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/iode.tar
+CND_PACKAGE_NAME_Release=vicos.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/vicos.tar
 #
 # include compiler specific variables
 #

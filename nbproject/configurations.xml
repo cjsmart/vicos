@@ -8,6 +8,7 @@
       <itemPath>Series.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f3" displayName="frontend" projectFiles="true">
+      <itemPath>README.md</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="f4" displayName="iode" projectFiles="true">
