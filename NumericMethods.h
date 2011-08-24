@@ -10,7 +10,7 @@
 
 #include "Series.h"
 
-namespace iode
+namespace vicos
 {
 
 class CProblem;
@@ -21,6 +21,12 @@ public:
 	// вычисляет один шаг численного метода решения задачи Коши
 	virtual timepoint CalculateStep(time t, const timepoint& x,
 		time h, CProblem* pProblem) = 0;
+};
+
+class COptimizationMethod
+{
+public:
+	virtual timepoint Execute() = 0;
 };
 
 }

@@ -2,7 +2,7 @@
 #include "Problem.h"
 
 using namespace std;
-using namespace iode;
+using namespace vicos;
 
 #include <vector>
 #include <cmath>
@@ -18,7 +18,7 @@ timepoint dydtcos(double x, const timepoint& y)
 	return dydt;
 }
 
-namespace iode
+namespace vicos
 {
 
 class CMyProblem : public CProblem

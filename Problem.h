@@ -10,7 +10,7 @@
 
 #include "Series.h"
 
-namespace iode
+namespace vicos
 {
 
 class CProblem

@@ -1,7 +1,7 @@
 #include "RKMethod.h"
 #include "Problem.h"
 
-namespace iode
+namespace vicos
 {
 
 // вычисляет один шаг численного метода решения задачи Коши

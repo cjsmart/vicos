@@ -10,7 +10,7 @@
 
 #include "Includes.h"
 
-namespace iode
+namespace vicos
 {
 
 typedef double numeric;

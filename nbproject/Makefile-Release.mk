@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/RKMethod.o \
 	${OBJECTDIR}/Series.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/VICOS.o
 
 
 # C Compiler Flags
@@ -66,17 +67,22 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/vicos: ${OBJECTFILES}
 ${OBJECTDIR}/RKMethod.o: RKMethod.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/RKMethod.o RKMethod.cpp
+	$(COMPILE.cc) -O2 -I../boost_1_47_0 -MMD -MP -MF $@.d -o ${OBJECTDIR}/RKMethod.o RKMethod.cpp
 
 ${OBJECTDIR}/Series.o: Series.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Series.o Series.cpp
+	$(COMPILE.cc) -O2 -I../boost_1_47_0 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Series.o Series.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -I../boost_1_47_0 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/VICOS.o: VICOS.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../boost_1_47_0 -MMD -MP -MF $@.d -o ${OBJECTDIR}/VICOS.o VICOS.cpp
 
 # Subprojects
 .build-subprojects:

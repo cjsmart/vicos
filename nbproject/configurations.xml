@@ -8,15 +8,18 @@
       <itemPath>Series.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f3" displayName="frontend" projectFiles="true">
+      <itemPath>LICENSE.txt</itemPath>
       <itemPath>README.md</itemPath>
       <itemPath>main.cpp</itemPath>
-    </logicalFolder>
-    <logicalFolder name="f4" displayName="iode" projectFiles="true">
-      <itemPath>Problem.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f2" displayName="numivp" projectFiles="true">
       <itemPath>RKMethod.cpp</itemPath>
       <itemPath>RKMethod.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f4" displayName="vicos" projectFiles="true">
+      <itemPath>Problem.h</itemPath>
+      <itemPath>VICOS.cpp</itemPath>
+      <itemPath>VICOS.h</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Файлы тестов"
@@ -38,6 +41,11 @@
         <compilerSet>GNU|GNU</compilerSet>
       </toolsSet>
       <compileType>
+        <cTool>
+          <incDir>
+            <pElem>../boost_1_47_0</pElem>
+          </incDir>
+        </cTool>
         <ccTool>
           <incDir>
             <pElem>../boost_1_47_0</pElem>
@@ -48,14 +56,20 @@
     <conf name="Release" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
       </toolsSet>
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../boost_1_47_0</pElem>
+          </incDir>
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../boost_1_47_0</pElem>
+          </incDir>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>

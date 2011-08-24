@@ -11,7 +11,7 @@
 #include "Series.h"
 #include "NumericMethods.h"
 
-namespace iode
+namespace vicos
 {
 
 class CRungeKutta4Method : public CIVPMethod
