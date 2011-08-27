@@ -14,13 +14,53 @@
 namespace vicos
 {
 
+//////////////////////////////////////////////////////////
+// CVICOSSetup - настройки решателя
+class CVICOSSetup
+{
+public:		// construction
+	CVICOSSetup(long iDim, CProblem* pProblem, 
+		time tStart, time tFinish, bool bSeizeProblem = true);
+	
+	virtual ~CVICOSSetup();
+	
+public:		// access
+	time GetStart() const { return m_tStart; }
+	void SetStart(time tValue) { m_tStart = tValue; }
+	
+	time GetFinish() const { return m_tFinish; }
+	void SetFinish(time tValue) { m_tFinish = tValue; }
+	
+	time GetNStep() const { return m_tNStep; }
+	void SetNStep(time tValue) { m_tNStep = tValue; }
+	
+	time GetVStep() const { return m_tVStep; }
+	void SetVStep(time tValue) { m_tVStep = tValue; }
+	
+	CProblem* GetProblem() const { return m_pProblem; }
+	
+	long GetDim() const { return m_iDim; }
+	
+private:	// fields
+	time m_tStart, m_tFinish;	// integration interval
+	time 
+		m_tNStep,				// non-validated integration step
+		m_tVStep;				// maximum validated integration step
+	
+	long m_iDim;				// problem dimenstions count
+	
+	CProblem* m_pProblem;		// problem for VICOS
+	
+	bool m_bSeize;				// delete problem object in destructor
+};
+
 
 //////////////////////////////////////////////////////////
 // CVICOS - класс общего решателя
 class CVICOS
 {
 public:
-	CVICOS(CProblem* pProblem, CIVPMethod* pIVP, 
+	CVICOS(CVICOSSetup* pSetup, CIVPMethod* pIVP, 
 		COptimizationMethod* pOptim);
 	
 	void Execute();		// execute VICOS
@@ -31,7 +71,7 @@ protected:
 	void CalculateValidated();		// 3rd step
 	
 private:
-	CProblem* m_pProblem;
+	CVICOSSetup* m_pSetup;
 	CIVPMethod* m_pIVPMethod; // first step method
 	COptimizationMethod* m_pOptMethod; // second step method
 };

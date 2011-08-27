@@ -1,22 +1,12 @@
 #include "RKMethod.h"
 #include "Problem.h"
+#include "VICOS.h"
 
 using namespace std;
 using namespace vicos;
 
 #include <vector>
 #include <cmath>
-
-timepoint dydtcos(double x, const timepoint& y)
-{
-	unsigned int cnt = y.size();
-	timepoint dydt(y);
-
-	for (unsigned int i = 0; i < cnt; i++)
-		dydt[i] = cos(x);
-
-	return dydt;
-}
 
 namespace vicos
 {
@@ -60,28 +50,18 @@ public:
 		return timepoint();
 	}
 };
-};
 
-/*
- * 
- */
+} // end 'vicos' namespace
+
+
 int main(int argc, char** argv)
 {
-	timepoint yi(1, 0.0);
-
-	double x = 0.0, dx = 0.10;
-
-	CMyProblem prob;
+	CVICOSSetup setup(2, new CMyProblem, 0, 100, true);
 	CRungeKutta4Method rk;
-
-	while (x < 10.0)
-	{
-		yi = rk.CalculateStep(x, yi, dx, &prob);
-
-		std::cout << yi << std::endl;
-
-		x += dx;
-	}
+	
+	CVICOS vicos(&setup, &rk, NULL);
+	
+	vicos.Execute();
 
 	return 0;
 }
