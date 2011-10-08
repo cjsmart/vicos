@@ -11,7 +11,7 @@ using namespace vicos;
 namespace vicos
 {
 
-class CMyProblem : public CProblem
+class CSimpleExpProblem : public CProblem
 {
 public:
 	// вычисляет значение $\frac{dx}{dt}$ для исходной задачи
@@ -36,15 +36,15 @@ public:
 		unsigned int cnt = x.size();
 		timepoint dxdt(x);
 
-		if (bInv)
+		if (!bInv)
 		{
 			for (unsigned int i = 0; i < cnt; i++)
-				dxdt[i] = cos(t);
+				dxdt[i] = x[i];
 		}
 		else
 		{
 			for (unsigned int i = 0; i < cnt; i++)
-				dxdt[i] = -1/cos(t);
+				dxdt[i] = -x[i];
 		}
 
 		return dxdt;
@@ -66,7 +66,7 @@ public:
 
 int main(int argc, char** argv)
 {
-	CVICOSContext setup(2, new CMyProblem, 0, 100, true);
+	CVICOSContext setup(1, new CSimpleExpProblem, 0, 2, true);
 	CRungeKutta4Method rk;
 	
 	CVICOS vicos(&setup, &rk, NULL);
