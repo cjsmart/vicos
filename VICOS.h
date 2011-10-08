@@ -16,13 +16,13 @@ namespace vicos
 
 //////////////////////////////////////////////////////////
 // CVICOSSetup - настройки решателя
-class CVICOSSetup
+class CVICOSContext
 {
 public:		// construction
-	CVICOSSetup(long iDim, CProblem* pProblem, 
+	CVICOSContext(long iDim, CProblem* pProblem, 
 		time tStart, time tFinish, bool bSeizeProblem = true);
 	
-	virtual ~CVICOSSetup();
+	virtual ~CVICOSContext();
 	
 public:		// access
 	time GetStart() const { return m_tStart; }
@@ -60,7 +60,7 @@ private:	// fields
 class CVICOS
 {
 public:
-	CVICOS(CVICOSSetup* pSetup, CIVPMethod* pIVP, 
+	CVICOS(CVICOSContext* pSetup, CIVPMethod* pIVP, 
 		COptimizationMethod* pOptim);
 	
 	void Execute();		// execute VICOS
@@ -71,7 +71,7 @@ protected:
 	void CalculateValidated();		// 3rd step
 	
 private:
-	CVICOSSetup* m_pSetup;
+	CVICOSContext* m_pSetup;
 	CIVPMethod* m_pIVPMethod; // first step method
 	COptimizationMethod* m_pOptMethod; // second step method
 };

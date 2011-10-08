@@ -20,7 +20,7 @@ class CIVPMethod
 public:
 	// вычисляет один шаг численного метода решения задачи Коши
 	virtual timepoint CalculateStep(time t, const timepoint& x,
-		time h, CProblem* pProblem) = 0;
+		time h, CProblem* pProblem, bool bInverse = false) = 0;
 };
 
 class COptimizationMethod

@@ -20,6 +20,8 @@
       <itemPath>Problem.h</itemPath>
       <itemPath>VICOS.cpp</itemPath>
       <itemPath>VICOS.h</itemPath>
+      <itemPath>VICOSSteps.cpp</itemPath>
+      <itemPath>VICOSSteps.h</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Файлы тестов"

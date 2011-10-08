@@ -17,6 +17,7 @@ typedef double numeric;
 typedef double time;
 typedef vector<numeric> timepoint;
 typedef vector<timepoint> series;
+typedef vector<series> seriesmatrix;
 
 };
 

@@ -31,13 +31,21 @@ public:
 	// вычисляет значение $\frac{dx}{dt}$ для задачи нахождения 
 	// фундаментальной матрицы Коши
 
-	virtual timepoint CalculateDXF(time t, const timepoint& x)
+	virtual timepoint CalculateDXF(time t, const timepoint& x, bool bInv)
 	{
 		unsigned int cnt = x.size();
 		timepoint dxdt(x);
 
-		for (unsigned int i = 0; i < cnt; i++)
-			dxdt[i] = cos(t);
+		if (bInv)
+		{
+			for (unsigned int i = 0; i < cnt; i++)
+				dxdt[i] = cos(t);
+		}
+		else
+		{
+			for (unsigned int i = 0; i < cnt; i++)
+				dxdt[i] = -1/cos(t);
+		}
 
 		return dxdt;
 	}
@@ -47,16 +55,18 @@ public:
 
 	virtual timepoint CalculateDXFT(time t, const timepoint& x)
 	{
+		// здесь нужно найти как решается сопряженная задача для
+		// фундаментальной матрицы
 		return timepoint();
 	}
 };
 
-} // end 'vicos' namespace
+} // end of 'vicos' namespace
 
 
 int main(int argc, char** argv)
 {
-	CVICOSSetup setup(2, new CMyProblem, 0, 100, true);
+	CVICOSContext setup(2, new CMyProblem, 0, 100, true);
 	CRungeKutta4Method rk;
 	
 	CVICOS vicos(&setup, &rk, NULL);

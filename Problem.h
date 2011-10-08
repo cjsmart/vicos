@@ -23,12 +23,9 @@ public:
 	virtual timepoint CalculateFt(time t) = 0;
 
 	// вычисляет значение $\frac{dx}{dt}$ для задачи нахождения 
-	// фундаментальной матрицы Коши
-	virtual timepoint CalculateDXF(time t, const timepoint& x) = 0;
-
-	// вычисляет значение $\frac{dx}{dt}$ для сопряжённой задачи 
-	// нахождения обратной фундаментальной матрицы Коши   
-	virtual timepoint CalculateDXFT(time t, const timepoint& x) = 0;
+	// фундаментальной матрицы Коши, если bInv == true, то
+	// посчитает выражение для обратной матрицы
+	virtual timepoint CalculateDXF(time t, const timepoint& x, bool bInv = false) = 0;
 };
 
 }

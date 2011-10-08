@@ -1,4 +1,5 @@
 #include "VICOS.h"
+#include "VICOSSteps.h"
 
 namespace vicos
 {
@@ -6,7 +7,7 @@ namespace vicos
 
 //////////////////////////////////////////////////////////
 // CVICOS - класс общего решателя
-CVICOS::CVICOS(CVICOSSetup* pSetup, CIVPMethod* pIVP, COptimizationMethod* pOptim) : 
+CVICOS::CVICOS(CVICOSContext* pSetup, CIVPMethod* pIVP, COptimizationMethod* pOptim) : 
 	m_pSetup(pSetup), m_pIVPMethod(pIVP), m_pOptMethod(pOptim)
 {
 	
@@ -21,6 +22,11 @@ void CVICOS::Execute()
 
 void CVICOS::CalculateCauchyMatrices()	// 1st step
 {
+	CVICOSFirstStep fs(m_pSetup, m_pIVPMethod);
+	
+	fs.Execute();
+	
+	/*
 	// 1.1 Calculate straight matrix
 	timepoint X0;
 	
@@ -46,7 +52,7 @@ void CVICOS::CalculateCauchyMatrices()	// 1st step
 		std::cout << X0 << std::endl;
 	}
 	
-	// 1.2 Calculate reverse matrix
+	// 1.2 Calculate reverse matrix */
 }
 
 void CVICOS::FindStartPoint()			// 2nd step
@@ -62,7 +68,7 @@ void CVICOS::CalculateValidated()		// 3rd step
 
 //////////////////////////////////////////////////////////
 // CVICOSSetup - настройки решателя
-CVICOSSetup::CVICOSSetup(long iDim, CProblem* pProblem, 
+CVICOSContext::CVICOSContext(long iDim, CProblem* pProblem, 
 	time tStart, time tFinish, bool bSeizeProblem /*= true*/) : 
 	m_iDim(iDim), m_pProblem(pProblem), m_tStart(tStart), 
 	m_tFinish(tFinish), m_bSeize(bSeizeProblem)
@@ -70,7 +76,7 @@ CVICOSSetup::CVICOSSetup(long iDim, CProblem* pProblem,
 	m_tNStep = m_tVStep = (tFinish - tStart) / 100;
 }
 	
-CVICOSSetup::~CVICOSSetup()
+CVICOSContext::~CVICOSContext()
 {
 	if (m_bSeize && m_pProblem != NULL)
 	{

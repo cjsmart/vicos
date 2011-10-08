@@ -7,14 +7,14 @@ namespace vicos
 // вычисляет один шаг численного метода решения задачи Коши
 
 timepoint CRungeKutta4Method::CalculateStep(time t, const timepoint& x,
-	time h, CProblem* pProblem)
+	time h, CProblem* pProblem, bool bInverse /*= false*/)
 {
 	//	total number of elements in the vector
 	int n = x.size();
 
 	//	first step
 	timepoint k1;
-	k1 = pProblem->CalculateDXF(t, x);
+	k1 = pProblem->CalculateDXF(t, x, bInverse);
 	for (int i = 0; i < n; ++i)
 	{
 		k1[i] *= h;
@@ -26,7 +26,7 @@ timepoint CRungeKutta4Method::CalculateStep(time t, const timepoint& x,
 	{
 		k2[i] += k1[i] / 2.0;
 	}
-	k2 = pProblem->CalculateDXF(t + h / 2.0, k2);
+	k2 = pProblem->CalculateDXF(t + h / 2.0, k2, bInverse);
 	for (int i = 0; i < n; ++i)
 	{
 		k2[i] *= h;
@@ -38,7 +38,7 @@ timepoint CRungeKutta4Method::CalculateStep(time t, const timepoint& x,
 	{
 		k3[i] += k2[i] / 2.0;
 	}
-	k3 = pProblem->CalculateDXF(t + h / 2.0, k3);
+	k3 = pProblem->CalculateDXF(t + h / 2.0, k3, bInverse);
 	for (int i = 0; i < n; ++i)
 	{
 		k3[i] *= h;
@@ -51,7 +51,7 @@ timepoint CRungeKutta4Method::CalculateStep(time t, const timepoint& x,
 	{
 		k4[i] += k3[i];
 	}
-	k4 = pProblem->CalculateDXF(t + h, k4);
+	k4 = pProblem->CalculateDXF(t + h, k4, bInverse);
 	for (int i = 0; i < n; ++i)
 	{
 		k4[i] *= h;

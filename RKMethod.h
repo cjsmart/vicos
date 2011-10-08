@@ -19,7 +19,7 @@ class CRungeKutta4Method : public CIVPMethod
 public:
 	// вычисляет один шаг численного метода решения задачи Коши
 	virtual timepoint CalculateStep(time t, const timepoint& x,
-		time h, CProblem* pProblem);
+		time h, CProblem* pProblem, bool bInverse = false);
 };
 
 };

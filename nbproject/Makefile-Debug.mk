@@ -37,6 +37,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/RKMethod.o \
 	${OBJECTDIR}/Series.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/VICOSSteps.o \
 	${OBJECTDIR}/VICOS.o
 
 
@@ -78,6 +79,11 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../boost_1_47_0 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/VICOSSteps.o: VICOSSteps.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../boost_1_47_0 -MMD -MP -MF $@.d -o ${OBJECTDIR}/VICOSSteps.o VICOSSteps.cpp
 
 ${OBJECTDIR}/VICOS.o: VICOS.cpp 
 	${MKDIR} -p ${OBJECTDIR}
