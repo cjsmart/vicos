@@ -10,11 +10,10 @@ timepoint CRungeKutta4Method::CalculateStep(time t, const timepoint& x,
 	time h, CProblem* pProblem, bool bInverse /*= false*/)
 {
 	//	total number of elements in the vector
-	int n = x.size();
+	int n = x.GetCount();
 
 	//	first step
-	timepoint k1;
-	k1 = pProblem->CalculateDXF(t, x, bInverse);
+	timepoint k1 = pProblem->CalculateDXF(t, x, bInverse);
 	for (int i = 0; i < n; ++i)
 	{
 		k1[i] *= h;

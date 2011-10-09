@@ -33,7 +33,7 @@ public:
 
 	virtual timepoint CalculateDXF(time t, const timepoint& x, bool bInv)
 	{
-		unsigned int cnt = x.size();
+		unsigned int cnt = x.GetCount();
 		timepoint dxdt(x);
 
 		if (!bInv)

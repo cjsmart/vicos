@@ -40,8 +40,8 @@ public:
 public:
 	virtual void Execute();
 	
-	seriesmatrix GetX();			// вернуть матрицу Коши
-	seriesmatrix GetInversedX();	// вернуть обратную матрицу Коши
+	const matrixseries& GetX() const;			// вернуть матрицу Коши
+	const matrixseries& GetInversedX() const;	// вернуть обратную матрицу Коши
 	
 protected:
 	void CalcStraightMatrix();
@@ -50,9 +50,28 @@ protected:
 private:
 	
 	CIVPMethod* m_pMethod;	// метод решения ОДУ
-	seriesmatrix
+	matrixseries
 		m_X,
 		m_Xi;
+};
+
+
+//////////////////////////////////////////////////////////
+// CVICOSSecondStep - нахождение начальной точки $c$
+class CVICOSSecondStep : public CVICOSStep
+{
+public:
+	CVICOSSecondStep(CVICOSContext* pSetup, CVICOSFirstStep* pFirstStep);
+	
+public:
+	virtual void Execute();
+	
+	const timepoint& GetStartPoint() const;		// получить начальную точку
+	
+private:
+	
+	CVICOSFirstStep* m_pFirstStep;	// первый шаг с матрицами
+	timepoint m_StartPoint;
 };
 
 };
